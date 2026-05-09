@@ -1,0 +1,3 @@
+
+
+# My Portfolio Website This is my personal developer portfolio built using HTML, CSS, and JavaScript. ## About A simple multi-page website to showcase my skills, projects, and contact information. ## Features - Home, About, Photos, Contact pages - Simple contact form - Responsive design - Font Awesome icons ## Technologies Used - HTML - CSS - JavaScript - Font Awesome ## How to use Open `index.html` in your browser or view it via GitHub Pages. ## Author Gino
