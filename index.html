@@ -1,278 +1,580 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Gino's|Portfolio</title>
-<meta charset="UTF-8">
-<meta name="author" content="Gino">
-<meta name="robots" content="index.follow">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content=" A brief description,my new website with HTML,CSS,JavaScript,a Framework and More." />
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<link rel="stylesheet"  href="style.css">
-<link  https://gino 363.github.io>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Gino Rusolo | Web Developer</title>
+
+  <meta
+    name="description"
+    content="Gino Rusolo - Self-taught web developer building projects with Node.js, TypeScript, PostgreSQL and JavaScript."
+  >
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #111;
+      color: #eee;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* --------------------
+       Navigation
+    -------------------- */
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: rgba(17, 17, 17, 0.95);
+      border-bottom: 1px solid #333;
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 15px 20px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 25px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: #ccc;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover {
+      color: #fff;
+    }
+
+    /* --------------------
+       General
+    -------------------- */
+
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 100px 20px;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
+
+    .section-line {
+      width: 70px;
+      height: 3px;
+      background: #4da3ff;
+      margin-bottom: 35px;
+    }
+
+    /* --------------------
+       Hero
+    -------------------- */
+
+    #home {
+      min-height: 100vh;
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      text-align: center;
+    }
+
+    .hero-content {
+      max-width: 750px;
+    }
+
+    .hero-content h1 {
+      font-size: 4rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-content h2 {
+      font-size: 1.6rem;
+      font-weight: normal;
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+
+    .hero-content p {
+      color: #bbb;
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 12px 24px;
+      background: #4da3ff;
+      color: #fff;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+
+    .button:hover {
+      background: #287ac4;
+    }
+
+    /* --------------------
+       About
+    -------------------- */
+
+    .about-text {
+      max-width: 800px;
+    }
+
+    .about-text p {
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    /* --------------------
+       Skills
+    -------------------- */
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .skill {
+      background: #222;
+      border: 1px solid #444;
+      padding: 10px 18px;
+      border-radius: 20px;
+      color: #ddd;
+    }
+
+    /* --------------------
+       Projects
+    -------------------- */
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 25px;
+    }
+
+    .project-card {
+      background: #1b1b1b;
+      border: 1px solid #333;
+      border-radius: 8px;
+      padding: 25px;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+    }
+
+    .project-card p {
+      color: #bbb;
+      margin-bottom: 15px;
+    }
+
+    .project-tech {
+      color: #4da3ff;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .project-link {
+      margin-top: auto;
+    }
+
+    .project-link a {
+      display: inline-block;
+      border: 1px solid #555;
+      padding: 8px 16px;
+      border-radius: 4px;
+      transition: all 0.3s;
+    }
+
+    .project-link a:hover {
+      background: #fff;
+      color: #111;
+    }
+
+    /* --------------------
+       Contact
+    -------------------- */
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 15px;
+      margin-top: 25px;
+    }
+
+    .contact-links a {
+      border: 1px solid #555;
+      padding: 10px 20px;
+      border-radius: 5px;
+      color: #ccc;
+    }
+
+    .contact-links a:hover {
+      background: #fff;
+      color: #111;
+    }
+
+    /* --------------------
+       Footer
+    -------------------- */
+
+    footer {
+      text-align: center;
+      border-top: 1px solid #333;
+      padding: 30px 20px;
+      color: #777;
+    }
+
+    /* --------------------
+       Mobile
+    -------------------- */
+
+    @media (max-width: 700px) {
+
+      .nav-container {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nav-links {
+        gap: 15px;
+        font-size: 0.9rem;
+      }
+
+      .hero-content h1 {
+        font-size: 2.7rem;
+      }
+
+      .hero-content h2 {
+        font-size: 1.3rem;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 80px 20px;
+      }
+    }
+  </style>
 </head>
-<body class="w3-black">
 
-<!-- Icon Bar (Sidebar - hidden on small screens) -->
-<nav class="w3-sidebar w3-bar-block w3-small w3-hide-small w3-center">
-  <!-- Avatar image in top left corner -->
-  
-  <a href="#" class="w3-bar-item w3-button w3-padding-large w3-black">
-    <i class="fa fa-home w3-xxlarge"></i>
-    <p>HOME</p>
-  </a>
-  <a href="#about" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-user w3-xxlarge"></i>
-    <p>ABOUT</p>
-  </a>
-  <a href="#photos" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-eye w3-xxlarge"></i>
-    <p>PHOTOS</p>
-  </a>
-  <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hover-black">
-    <i class="fa fa-envelope w3-xxlarge"></i>
-    <p>CONTACT</p>
-  </a>
-</nav>
+<body>
 
-<!-- Navbar on small screens (Hidden on medium and large screens) -->
-<div class="w3-top w3-hide-large w3-hide-medium" id="myNavbar">
-  <div class="w3-bar w3-black w3-opacity w3-hover-opacity-off w3-center w3-small">
-    <a href="#" class="w3-bar-item w3-button" style="width:25% !important">HOME</a>
-    <a href="#about" class="w3-bar-item w3-button" style="width:25% !important">ABOUT</a>
-    <a href="#photos" class="w3-bar-item w3-button" style="width:25% !important">PHOTOS</a>
-    <a href="#contact" class="w3-bar-item w3-button" style="width:25% !important">CONTACT</a>
-  </div>
-</div>
+  <!-- Navigation -->
 
-<!-- Page Content -->
-<div class="w3-padding-large" id="main">
-  <!-- Header/Home -->
-  <header class="w3-container w3-padding-32 w3-center w3-black" id="home">
-    <h1 class="w3-jumbo"><span class="w3-hide-small"></span> Gino Rusolo.</h1>
-     <p>Programmer and Web developer</p>
-                                                    
-      <img alt="Image" draggable="true" src="https://pbs.twimg.com/profile_images/641483175953350656/sPkZnWgx_400x400.jpg" class="css-9pa8cd">                                         
-                                                                                                
-  </header>
+  <nav>
+    <div class="nav-container">
 
-  <!-- About Section -->
-  <div class="w3-content w3-justify w3-text-white w3-padding-64" id="about">
-    <h2 class="w3-text-white">About Me</h2>
-    <hr style="width:200px" class="w3-opacity">
-       <p class="w3-text-white">Some text about me.  I'am a self taught developer i created this website i will add
-           more content as i progress.
-            </p>
-            <p>
-                I'am learning new tech in web developement its changeing all the
-                time something new comes along.
-            </p>
-            <p>
-                The tech I'am using node.js allows to run javascript on the
-                server all so ejs template which you can use npm just install
-                it.
-            </p>
-            <p>
-                There are other templates you can use Pug,
-                Handlebars,Mustache,Ejs and few a others.
-            </p>
-            <p>Also on the backend on this website i'am using Mongodb</p>
-            <p>
-                To be a full stack developer you need to know
-                html,css,javascript for the frontend.
-            </p>
-            <p>
-                For the backend you can use node which i'am using others are
-                python,php,etc.
-            </p>
-            <p>
-                I used other frameworks Django which is a python framework i
-                made a blog site on github.
-            </p>
-            <p>
-                Web developement is quite easy to set up i'am using a windows10
-                Laptop ive a choice of browsers to test my code on.
-            </p>
-            <p>
-                Google chrome which i use, its good for debuging, also i use
-                Firefox Mozilla which is good, i think there the two main ones.
-            </p>
-            <p>
-                Other Laptops i've have a macbook pro it's ok i got on Amazon
-                its a bit slow to boot up i need to up grade it.
-            </p>
-            <p>
-                All so i have Linux Laptop running on linux mint beats the other
-                two laptops.
-            </p>
-            <p>
-                Ok web development tools a code editor take your pick,
-                Vscode,Sublimetex,there are others, i use these two mainly.
-            </p>
-            <P
-                >A programming laungage javascript,python,php learn the basics
-                first then go to learn frameworks.
-            </P>
-            <p>
-                Ok frameworks lets see javascript
-                frameworks,Angular,React,Vue,Next.js,which i like.
-            </p>
-            <p>Python frameworks Django,Flask which i've used</p>
-            <p>
-                Php frameworks Laravel,Drupal,Codeignitor, Laravel i've used i
-                think thats the main one.
-            </p>
-        </div>
-        <div class="blogs content">
-            <h2>To sum up</h2>
-            <p>
-                I work as a flt/driver at a local firm for the past 23 years,
-                its ok steady income,iam 62 years old soon to retire in 4years.
-            </p>
-            <P
-                >Ok what will i do when i retire? good question deserves an
-                answer,I pondered what i like doing, learn a new skill.</P
-            >
-            <p>
-                So i started to lean programing, ok you think its a bit late to
-                learn at my age, Who going to employ me at my age.
-            </p>
-            <p>
-                OK nobody, so i'am learning as much has i can who knows i mite
-                get lucky!
-            </p>
-    </p>
-    <h3 class="w3-padding-16 w3-text-light-grey">My Skills</h3>
-    <p class="w3-wide">Photography</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:95%"></div>
-    </div>
-    <p class="w3-wide">Web Design</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:85%"></div>
-    </div>
-    <p class="w3-wide">Photoshop</p>
-    <div class="w3-white">
-      <div class="w3-dark-grey" style="height:28px;width:80%"></div>
-    </div><br>
-  
-
-    <button class="w3-button w3-light-grey w3-padding-large w3-section">
-      <i class="fa fa-download"></i> Download Resume
-    </button>
-    
-    <!-- Grid for pricing tables -->
-    <h3 class="w3-padding-16 w3-text-light-grey">My Price</h3>
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-half w3-margin-bottom">
-        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
-          <li class="w3-padding-16">Web Design</li>
-          <li class="w3-padding-16">Photography</li>
-          <li class="w3-padding-16">5GB Storage</li>
-          <li class="w3-padding-16">Mail Support</li>
-          <li class="w3-padding-16">
-            <h2>$ 10</h2>
-            <span class="w3-opacity">per month</span>
-          </li>
-          <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
-          </li>
-        </ul>
+      <div class="logo">
+        Gino Rusolo
       </div>
 
-      <div class="w3-half">
-        <ul class="w3-ul w3-white w3-center w3-opacity w3-hover-opacity-off">
-          <li class="w3-dark-grey w3-xlarge w3-padding-32">Pro</li>
-          <li class="w3-padding-16">Web Design</li>
-          <li class="w3-padding-16">Photography</li>
-          <li class="w3-padding-16">50GB Storage</li>
-          <li class="w3-padding-16">Endless Support</li>
-          <li class="w3-padding-16">
-            <h2>$ 25</h2>
-            <span class="w3-opacity">per month</span>
-          </li>
-          <li class="w3-light-grey w3-padding-24">
-            <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
-          </li>
-        </ul>
-      </div>
-    <!-- End Grid/Pricing tables -->
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
     </div>
-    
-    <!-- Testimonials -->
-    
-  <!-- End About Section -->
-  </div>
-  
-  <!-- Portfolio Section -->
-
-    <!-- Grid for photos -->
-    
-    
-    <!-- End photo grid -->
-    </div>
-  <!-- End Portfolio Section -->
-  </div>
-
-  <!-- Contact Section -->
-  <div class="w3-padding-64 w3-content w3-text-grey" id="contact">
-    <h2 class="w3-text-light-grey">Contact Me</h2>
-    <hr style="width:200px" class="w3-opacity">
-
-    <div class="w3-section">
-      
-      <p><i class="fa fa-phone fa-fw w3-text-white w3-xxlarge w3-margin-right"></i> Phone: 07546 101339</p>
-      <p><i class="fa fa-envelope fa-fw w3-text-white w3-xxlarge w3-margin-right"> </i> Email: grusolo22@gmail.com</p>
-    </div><br>
-    <p>Let's get in touch. Send me a message:</p>
-
-    
+  </nav>
 
 
-     <form action="https://formspree.io/f/mjglanzw" method="POST">
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Subject" required name="Subject"></p>
-      <p><input class="w3-input w3-padding-16" type="text" placeholder="Message" required name="Message"></p>
+  <!-- Home -->
+
+  <section id="home">
+
+    <div class="hero-content">
+
+      <h1>Hi, I'm Gino.</h1>
+
+      <h2>Self-Taught Web Developer</h2>
+
       <p>
-        <button class="w3-button w3-light-grey w3-padding-large" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
+        I enjoy building web applications and learning new
+        technologies, with a particular interest in Node.js,
+        TypeScript and PostgreSQL.
       </p>
-    </form>
 
-  <!-- End Contact Section -->
-  </div>
+      <a class="button" href="#projects">
+        View My Projects
+      </a>
 
+    </div>
 
-
-
-
-
+  </section>
 
 
+  <!-- About -->
+
+  <section id="about">
+
+    <h2 class="section-title">About Me</h2>
+
+    <div class="section-line"></div>
+
+    <div class="about-text">
+
+      <p>
+        I'm a self-taught developer with an interest in web
+        development and backend programming.
+      </p>
+
+      <p>
+        I enjoy learning by building real projects rather than
+        simply following tutorials. Over time I've worked with
+        JavaScript, Node.js, Express, TypeScript, PostgreSQL,
+        MongoDB and other technologies.
+      </p>
+
+      <p>
+        I'm particularly interested in backend development,
+        databases, APIs and building practical applications.
+      </p>
+
+      <p>
+        This portfolio is a place to showcase some of the
+        projects I've built while continuing to learn and
+        improve my programming skills.
+      </p>
+
+    </div>
+
+  </section>
 
 
+  <!-- Skills -->
+
+  <section id="skills">
+
+    <h2 class="section-title">Skills & Technologies</h2>
+
+    <div class="section-line"></div>
+
+    <div class="skills">
+
+      <span class="skill">HTML</span>
+      <span class="skill">CSS</span>
+      <span class="skill">JavaScript</span>
+      <span class="skill">TypeScript</span>
+      <span class="skill">Node.js</span>
+      <span class="skill">Express</span>
+      <span class="skill">PostgreSQL</span>
+      <span class="skill">MongoDB</span>
+      <span class="skill">SQL</span>
+      <span class="skill">REST APIs</span>
+      <span class="skill">Git</span>
+      <span class="skill">GitHub</span>
+    </div>
+
+  </section>
 
 
+  <!-- Projects -->
+
+  <section id="projects">
+
+    <h2 class="section-title">My Projects</h2>
+
+    <div class="section-line"></div>
+
+    <div class="projects">
 
 
-  
-    <!-- Footer -->
-  <footer class="w3-content w3-padding-64 w3-text-grey w3-xlarge">
-    <h4>Find Me On:</h4>
-    <a target="_blank" rel="noopener" href="https://github.com/gino363"><i class="fa fa-github" aria-hidden="true"></i></a></li>
-    <a target="_blank" rel="noopener" href="https://www.facebook.com/GinoRusolo"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-    <a target="_blank" rel="noopener" href="https://twitter.com/rusologino"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-    <p class="w3-medium">&copy;2023 | All rights reserved</p>
-  <!-- End footer -->
+      <!-- Solaris -->
+
+      <article class="project-card">
+
+        <h3>⚡ Solaris Energy</h3>
+
+        <p>
+          A customer portal project with registration,
+          login and PostgreSQL database functionality.
+        </p>
+
+        <div class="project-tech">
+          TypeScript · Node.js · Express · PostgreSQL
+        </div>
+
+        <div class="project-link">
+
+          <a href="#" target="_blank" rel="noopener">
+            View on GitHub
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- WMS -->
+
+      <article class="project-card">
+
+        <h3>📦 Warehouse Management System</h3>
+
+        <p>
+          A warehouse management application built
+          around a Node.js backend and PostgreSQL.
+        </p>
+
+        <div class="project-tech">
+          Node.js · Express · PostgreSQL
+        </div>
+
+        <div class="project-link">
+
+          <a href="#" target="_blank" rel="noopener">
+            View on GitHub
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- Login/Register -->
+
+      <article class="project-card">
+
+        <h3>🔐 Login & Registration</h3>
+
+        <p>
+          A TypeScript project exploring customer
+          registration, login and database interaction.
+        </p>
+
+        <div class="project-tech">
+          TypeScript · Node.js · PostgreSQL
+        </div>
+
+        <div class="project-link">
+
+          <a href="#" target="_blank" rel="noopener">
+            View on GitHub
+          </a>
+
+        </div>
+
+      </article>
+
+
+      <!-- Todo -->
+
+      <article class="project-card">
+
+        <h3>📝 Todo Application</h3>
+
+        <p>
+          A database-backed Todo application built
+          while learning Node.js and PostgreSQL.
+        </p>
+
+        <div class="project-tech">
+          Node.js · Express · PostgreSQL
+        </div>
+
+        <div class="project-link">
+
+          <a href="#" target="_blank" rel="noopener">
+            View on GitHub
+          </a>
+
+        </div>
+
+      </article>
+
+
+    </div>
+
+  </section>
+
+
+  <!-- Contact -->
+
+  <section id="contact">
+
+    <h2 class="section-title">Contact</h2>
+
+    <div class="section-line"></div>
+
+    <p>
+      If you'd like to see more of my work, you can find
+      my projects on GitHub.
+    </p>
+
+    <div class="contact-links">
+
+      <a
+        href="https://github.com/gino363"
+        target="_blank"
+        rel="noopener"
+      >
+        GitHub
+      </a>
+
+      <a href="mailto:your-email@example.com">
+        Email
+      </a>
+
+    </div>
+
+  </section>
+
+
+  <!-- Footer -->
+
+  <footer>
+
+    <p>
+      &copy; 2026 Gino Rusolo
+    </p>
+
   </footer>
 
-<!-- END PAGE CONTENT -->
-</div>
-<script src="script.js"></script>
 </body>
 </html>
